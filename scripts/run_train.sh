@@ -14,6 +14,13 @@ source activate audio2022
 
 cd pwd
 
+# Read the task_id
+task_id=$1
+
+echo 'Setting task_id to = '
+echo $task_id
+
+
 #Sanity check, is the anaconda environment loaded ?
 hostname
 python -c 'import librosa'
@@ -24,7 +31,7 @@ echo Running experiments
 
 
 # Finally, for Ambisonic format baseline results, run the following command
-srun python train_seldnet.py 3
+srun python train_seldnet.py 3 $task_id
 
 
 conda deactivate
